@@ -72,7 +72,7 @@ public class Gato {
         return this.comprobarVictoria(nodoActual) || (this.escanearCasillaVaciaEnTablero(nodoActual) == null);
     }
 
-    // Evaluar el valor heurÌstico solo en los nodos hoja.
+    // Evaluar el valor heur√≠stico solo en los nodos hoja.
     public int evaluarValorHeuristico(Nodo nodoActual) {
         if (nodoActual.siguienteJugador.equals("X") && this.comprobarVictoria(nodoActual)) return -1;
         if (nodoActual.siguienteJugador.equals("O") && this.comprobarVictoria(nodoActual)) return 1;
@@ -200,7 +200,7 @@ public class Gato {
     }
 
     /*
-     * Obtener m·ximo/mÌnimo.
+     * Obtener m√°ximo/m√≠nimo.
      */
     public int obtenerMaximoDeDosEnteros(int unEntero, int otroEntero) {
         if (unEntero < otroEntero) return otroEntero;
@@ -305,7 +305,7 @@ public class Gato {
         return alfaDelNodoActual;
     }
 
-    // Obtener el prÛximo movimiento.
+    // Obtener el pr√≥ximo movimiento.
     public Nodo obtenerNodosSiguientesPosibles(Nodo nodoActual) {
         if (nodoActual.enProfundidad == 1) return nodoActual;
         else return null;
@@ -326,7 +326,7 @@ public class Gato {
         int[] entradaHumana = this.obtenerEntradaCorrectaDelMovimientoHumano(nodoActual);
         nuevoNodo = this.obtenerSiguienteMovimiento(nodoActual, entradaHumana);
         this.imprimirTablero(nuevoNodo.tablero);
-        if (this.comprobarVictoria(nuevoNodo)) System.out.println("°Has ganado!");
+        if (this.comprobarVictoria(nuevoNodo)) System.out.println("¬°La IA gan√≥!");
         else if (this.esNodoHoja(nuevoNodo)) System.out.println("Empate");
         else this.movimientoMaquina(nuevoNodo);
     }
@@ -335,7 +335,7 @@ public class Gato {
         Nodo nuevoNodo = this.inicializarNodoConEntrada(nodoActual.tablero);
         nuevoNodo = this.obtenerSiguienteNodoAMover(nuevoNodo);
         this.imprimirTablero(nuevoNodo.tablero);
-        if (this.comprobarVictoria(nuevoNodo)) System.out.println("La IA ganÛ");
+        if (this.comprobarVictoria(nuevoNodo)) System.out.println("Haz ganado");
         else if (this.esNodoHoja(nuevoNodo)) System.out.println("Empate");
         else this.movimientoHumano(nuevoNodo);
     }
@@ -354,11 +354,11 @@ public class Gato {
     }
 
     /*
-     * MÈtodos obtener quien empieza, validar casilla
+     * M√©todos obtener quien empieza, validar casilla
      */
     public int obtenerJugador() {
         Scanner jugador = new Scanner(System.in);
-        System.out.print("øQuieres jugar primero? SÌ (1). No (0): ");
+        System.out.print("¬øQuieres jugar primero? S√≠ (1). No (0): ");
         return jugador.nextInt();
     }
 
@@ -373,10 +373,10 @@ public class Gato {
                 entradaJugador[1] = entrada.nextInt();
                 if (entradaJugador[0] >= 0 && entradaJugador[0] <= 2 && entradaJugador[1] >= 0 && entradaJugador[1] <= 2 && nodoActual.tablero[entradaJugador[0]][entradaJugador[1]] == null) casillaVacia = 0;
                 else {
-                    System.out.println("Celda no v·lida. Elije otra.");
+                    System.out.println("Celda no v√°lida. Elije otra.");
                 }
             } catch (InputMismatchException e) {
-                System.out.println("Entrada no v·lida. Introduce dos n˙meros separados por espacios.");
+                System.out.println("Entrada no v√°lida. Introduce dos n√∫meros separados por espacios.");
                 entrada = new Scanner(System.in);
             }
         }
